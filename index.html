@@ -1,9 +1,36 @@
 ---
-layout: home
+layout: archive
 author_profile: false
-header:
-  overlay_color: "#333"
-  overlay_filter: "0.5"
-title: "Your Blog Name"
-excerpt: "A blog description or tagline goes here"
+title: "Welcome to Your Blog"
+excerpt: "A blog about topics you care about"
 ---
+
+<div class="entries-grid">
+  {% for post in paginator.posts %}
+    <article class="entry-item">
+      {% if post.header.teaser %}
+        <a href="{{ post.url | relative_url }}" class="entry-image">
+          <img src="{{ post.header.teaser | relative_url }}" alt="{{ post.title }}">
+        </a>
+      {% endif %}
+      <div class="entry-content">
+        <h2 class="entry-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h2>
+        <p class="entry-meta">{{ post.date | date: "%B %d, %Y" }}</p>
+        <p class="entry-excerpt">{{ post.excerpt | strip_html | truncate: 160 }}</p>
+      </div>
+    </article>
+  {% endfor %}
+</div>
+
+{% if paginator.total_pages > 1 %}
+<nav class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | relative_url }}" class="pagination--previous">← Previous</a>
+  {% endif %}
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | relative_url }}" class="pagination--next">Next →</a>
+  {% endif %}
+</nav>
+{% endif %}
