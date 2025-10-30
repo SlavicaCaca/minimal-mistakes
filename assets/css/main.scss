@@ -65,3 +65,103 @@ search: false
   line-height: 1.6;
   margin: 0;
 }
+---
+---
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
+@import "minimal-mistakes";
+
+// Custom color palette
+$primary-color: #60003b;
+$secondary-color: #ba5a87;
+
+// Remove header border
+.masthead {
+  border-bottom: none;
+  background-color: $primary-color;
+}
+
+// Site title and navigation
+.site-title {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.greedy-nav a {
+  color: #ffffff;
+}
+
+.greedy-nav a:hover {
+  color: $secondary-color;
+}
+
+// Links
+a {
+  color: $primary-color;
+  
+  &:hover {
+    color: $secondary-color;
+  }
+}
+
+// Header/Hero section
+.page__hero {
+  background-color: $primary-color;
+}
+
+.page__hero-title {
+  color: #ffffff;
+}
+
+.page__lead {
+  color: #ffffff;
+}
+
+// Post titles in grid
+.archive__item-title a {
+  color: $primary-color;
+  
+  &:hover {
+    color: $secondary-color;
+  }
+}
+
+// Hover effects on post cards
+.archive__item:hover,
+.entry-item:hover {
+  border-color: $secondary-color;
+  box-shadow: 0 4px 12px rgba(96, 0, 59, 0.15);
+}
+
+// Buttons
+.btn {
+  background-color: $primary-color;
+  
+  &:hover {
+    background-color: $secondary-color;
+  }
+}
+
+// Pagination
+.pagination--previous,
+.pagination--next {
+  color: $primary-color;
+  border-color: $primary-color;
+  
+  &:hover {
+    background-color: $primary-color;
+    color: #ffffff;
+  }
+}
+
+// Categories and tags
+.page__taxonomy-item {
+  background-color: $secondary-color;
+  color: #ffffff;
+}
+
+// Active/current page indicators
+.greedy-nav .visible-links a.active,
+.greedy-nav .visible-links a.current {
+  color: $secondary-color;
+}
