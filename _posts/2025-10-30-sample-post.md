@@ -1,9 +1,9 @@
 ---
-title: "Your Post Title"
+title: "Ginekolosko nasiilje"
 date: 2025-10-30
-excerpt: "A brief description of your post that will appear in the grid"
+excerpt: "Ginekolosko nasilje u LGBT populaciji"
 header:
-  teaser: /assets/images/post1.jpg
+  teaser: /assets/images/gin.jpg
 categories:
   - Category
 tags:
