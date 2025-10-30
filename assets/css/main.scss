@@ -1,57 +1,173 @@
 ---
-# Only the main Sass file needs front matter (the dashes are enough)
 search: false
 ---
 
 @charset "utf-8";
 
-@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
-@import "minimal-mistakes"; // main partials
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
+@import "minimal-mistakes";
 
 // Custom color palette
 $primary-color: #60003b;
 $secondary-color: #ba5a87;
 $background-color: #f8eff3;
 
-// Set background color for entire site
+// Overall site background
 body {
   background-color: $background-color;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-.page {
+.page,
+.initial-content {
   background-color: $background-color;
 }
 
-.initial-content,
-.page__content {
-  background-color: $background-color;
-}
-
-// Keep post cards white for contrast
-.archive__item,
-.entry-item {
-  background: #fff;
-}
-
-// Remove header border
+// Header styling
 .masthead {
+  background-color: $primary-color;
   border-bottom: none;
-  background-color: $background-color;
+  padding: 1em 0;
 }
 
-// Site title and navigation
 .site-title {
   color: #ffffff;
+  font-size: 1.5em;
   font-weight: 600;
+  text-decoration: none;
+  
+  &:hover {
+    color: #ffffff;
+  }
 }
 
-
-.greedy-nav a:hover {
-  color: $secondary-color;
+.site-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9em;
+  margin-top: 0.25em;
 }
 
+// Navigation
 .greedy-nav {
-  background-color: $background-color;
+  background: $primary-color;
+}
+
+.greedy-nav a {
+  color: #ffffff;
+  
+  &:hover {
+    color: $secondary-color;
+  }
+}
+
+.greedy-nav .visible-links a {
+  padding: 0.5rem 1rem;
+}
+
+.greedy-nav .visible-links a:before {
+  background: $secondary-color;
+}
+
+.greedy-nav button {
+  color: #ffffff;
+}
+
+// Custom intro section
+.page__hero--intro {
+  background-color: $primary-color;
+  color: #ffffff;
+  padding: 3em 1em;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.page__hero--intro .page__title {
+  color: #ffffff;
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+  font-weight: 700;
+}
+
+.page__hero--intro .page__lead {
+  font-size: 1.2em;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 1em;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.page__hero--intro .page__subtext {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-top: 1.5em;
+  color: #ffffff;
+}
+
+// Posts grid styling
+.entries-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2em;
+  margin: 2em 0;
+  list-style: none;
+  padding: 0;
+}
+
+.list__item {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(96, 0, 59, 0.15);
+    border-color: $secondary-color;
+  }
+}
+
+// Archive items (posts in grid)
+.archive__item {
+  background: #ffffff;
+}
+
+.archive__item-teaser {
+  margin: 0;
+  
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0;
+  }
+}
+
+.archive__item-title {
+  font-size: 1.3em;
+  margin: 1em 1em 0.5em;
+  line-height: 1.3;
+  
+  a {
+    color: $primary-color;
+    text-decoration: none;
+    
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+}
+
+.archive__item-excerpt {
+  margin: 0 1em 1em;
+  font-size: 0.95em;
+  color: #666;
+  line-height: 1.6;
+}
+
+.page__meta {
+  margin: 0 1em 0.5em;
+  font-size: 0.85em;
+  color: #999;
 }
 
 // Links
@@ -63,126 +179,87 @@ a {
   }
 }
 
-// Header/Hero section
-.page__hero {
-  background-color: $primary-color;
+// Pagination
+.pagination {
+  margin: 3em 0;
+  text-align: center;
 }
 
-.page__hero-title {
-  color: #ffffff;
-}
-
-.page__lead {
-  color: #ffffff;
-}
-
-// Post titles in grid
-.archive__item-title a {
+.pagination--pager {
   color: $primary-color;
+  border: 2px solid $primary-color;
+  padding: 0.75em 1.5em;
+  text-decoration: none;
+  margin: 0 0.5em;
+  display: inline-block;
+  transition: all 0.3s ease;
   
   &:hover {
-    color: $secondary-color;
+    background-color: $primary-color;
+    color: #ffffff;
+  }
+  
+  &.disabled {
+    opacity: 0.5;
+    pointer-events: none;
   }
 }
 
-// Hover effects on post cards
-.archive__item:hover,
-.entry-item:hover {
-  border-color: $secondary-color;
-  box-shadow: 0 4px 12px rgba(96, 0, 59, 0.15);
+// Single post styling
+.page__content {
+  background-color: #ffffff;
+  padding: 2em;
+  border: 1px solid #e0e0e0;
+  margin-top: 2em;
+}
+
+.page__title {
+  color: $primary-color;
+  font-size: 2em;
+  margin-bottom: 0.5em;
 }
 
 // Buttons
 .btn {
   background-color: $primary-color;
+  color: #ffffff;
   
   &:hover {
     background-color: $secondary-color;
   }
 }
 
-// Pagination
-.pagination--previous,
-.pagination--next {
-  color: $primary-color;
-  border-color: $primary-color;
+// Footer
+.page__footer {
+  background-color: $primary-color;
+  color: #ffffff;
   
-  &:hover {
-    background-color: $primary-color;
+  a {
     color: #ffffff;
+    
+    &:hover {
+      color: $secondary-color;
+    }
   }
 }
 
-// Categories and tags
-.page__taxonomy-item {
-  background-color: $secondary-color;
-  color: #ffffff;
+// Remove author profile from posts
+.sidebar {
+  display: none;
 }
 
-// Active/current page indicators
-.greedy-nav .visible-links a.active,
-.greedy-nav .visible-links a.current {
-  color: $secondary-color;
-}
-
-// Custom grid layout
-.entries-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2em;
-  margin: 2em 0;
-}
-
-.entry-item {
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  overflow: hidden;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.entry-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-}
-
-.entry-image img {
+.archive {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
-  display: block;
+  padding-right: 0;
 }
 
-.entry-content {
-  padding: 1.5em;
-}
-
-.entry-title {
-  font-size: 1.3em;
-  margin: 0 0 0.5em;
-  line-height: 1.3;
-}
-
-.entry-title a {
-  color: #333;
-  text-decoration: none;
-}
-
-.entry-title a:hover {
-  color: #0066cc;
-}
-
-.entry-meta {
-  font-size: 0.85em;
-  color: #999;
-  margin-bottom: 1em;
-}
-
-.entry-excerpt {
-  font-size: 0.95em;
-  color: #666;
-  line-height: 1.6;
-  margin: 0;
-}
-.site-logo img {
-    max-height: 6rem;
+// Responsive adjustments
+@media (max-width: 768px) {
+  .entries-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .page__hero--intro .page__title {
+    font-size: 2em;
+  }
 }
