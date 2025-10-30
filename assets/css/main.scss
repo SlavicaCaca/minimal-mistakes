@@ -11,10 +11,32 @@ search: false
 // Custom color palette
 $primary-color: #60003b;
 $secondary-color: #ba5a87;
+$background-color: #f8eff3;
+
+// Set background color for entire site
+body {
+  background-color: $background-color;
+}
+
+.page {
+  background-color: $background-color;
+}
+
+.initial-content,
+.page__content {
+  background-color: $background-color;
+}
+
+// Keep post cards white for contrast
+.archive__item,
+.entry-item {
+  background: #fff;
+}
 
 // Remove header border
 .masthead {
   border-bottom: none;
+  background-color: $primary-color;
 }
 
 // Site title and navigation
@@ -23,6 +45,9 @@ $secondary-color: #ba5a87;
   font-weight: 600;
 }
 
+.greedy-nav a {
+  color: #ffffff;
+}
 
 .greedy-nav a:hover {
   color: $secondary-color;
