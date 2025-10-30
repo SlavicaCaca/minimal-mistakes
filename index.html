@@ -1,40 +1,14 @@
 ---
-layout: archive
+layout: home
 author_profile: false
+header:
+  image: /assets/images/header.jpg
 ---
 
-<div class="intro-section">
-  <h1 class="intro-title">Welcome!</h1>
-  
-  <p class="intro-text">Welcome to 'your blog name' – a blog quite simply devoted to writings on all things you care about!</p>
-  
-  <p class="intro-text">The content focuses on [your topics and themes].</p>
-  
-  <p class="intro-subtitle">Check out our latest articles:</p>
-</div>
+<h1>Welcome!</h1>
 
-<div class="posts-grid">
-  {% for post in paginator.posts %}
-    <article class="post-card">
-      {% if post.header.teaser %}
-        <a href="{{ post.url | relative_url }}" class="post-image">
-          <img src="{{ post.header.teaser | relative_url }}" alt="{{ post.title }}">
-        </a>
-      {% endif %}
-    </article>
-  {% endfor %}
-</div>
+<p>Welcome to 'all things feminist' – a blog quite simply devoted to writings on all things feminist!</p>
 
-{% if paginator.total_pages > 1 %}
-<nav class="pagination">
-  {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | relative_url }}" class="pagination-btn">← Previous</a>
-  {% endif %}
-  
-  <span class="page-number">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
-  
-  {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | relative_url }}" class="pagination-btn">Next →</a>
-  {% endif %}
-</nav>
-{% endif %}
+<p>The content focuses on radical, intersectional feminist issues, relating to global and local histories and politics of women's liberation, as well as of more contemporary pop-culture feminist issues.</p>
+
+<h2>Check out our latest articles:</h2>
